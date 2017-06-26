@@ -1,0 +1,19 @@
+[Unit]
+Description=SmartMet Vaisala GLD360 Socket Reader
+After=network-online.target vaisala-gld360-sshtunnel
+Before=multi-user.target
+DefaultDependencies=no
+
+[Service]
+User=smartmet
+ExecStart=/smartmet/run/data/vaisala-gld360/bin/vaisala-gld360-socketreader.py
+
+# wait 3 seconds before trying to restart the connection
+# if it disconnects 
+RestartSec=3
+
+# keep retrying no matter what
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
