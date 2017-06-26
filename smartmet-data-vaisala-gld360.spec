@@ -1,7 +1,7 @@
 %define smartmetroot /smartmet
 
 Name:           smartmet-data-vaisala-gld360
-Version:        1.0.0
+Version:        17.6.26
 Release:        1%{?dist}.fmi
 Summary:        SmartMet Data Vaisala GLD360 Lightning Feed
 Group:          System Environment/Base
@@ -45,7 +45,7 @@ cat > %{buildroot}%{smartmetroot}/run/data/vaisala-gld360/cnf/socketreader-confi
 EOF
 
 cat > %{buildroot}%{smartmetroot}/cnf/cron/cron.d/vaisala-gld360.cron <<EOF
-*/5 * * * * /smartmet/run/data/vaisala-gld360/bin/doflash.sh &> /smartmet/log/data/vaisala-gld360.log
+*/5 * * * * /smartmet/run/data/vaisala-gld360/bin/doflash.sh &> /smartmet/logs/data/vaisala-gld360.log
 EOF
 
 cat > %{buildroot}%{smartmetroot}/cnf/cron/cron.hourly/clean_data_vaisala-gld360 <<EOF
